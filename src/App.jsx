@@ -5,7 +5,12 @@ import Items from "./items";
 
 const getLocalStorage = () => {
   let list = localStorage.getItem('list')
-  console.log(list);
+  if(list){
+    list = JSON.parse(localStorage.getItem('list'))
+  } else {
+    list = [];
+  }
+  return list;
 }
 
 
@@ -13,8 +18,8 @@ const setLocalStorage = (items) => {
   localStorage.setItem('list', JSON.stringify(items))
 }
 const App = () => {
-  getLocalStorage();
-  const [items, setItems] = useState([]);
+  
+  const [items, setItems] = useState(getLocalStorage());
 
   const addItem = (itemName) => {
     const newItem = {
