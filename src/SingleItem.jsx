@@ -1,6 +1,12 @@
-const SingleItem = () => {
+const SingleItem = ( {item, removeItem} ) => {
   return (
-    <h2>SingleItem</h2>
+    <div className='single-item'>
+      <input type="checkbox" />
+      <p>{item.name}</p>
+      <button className="btn remove-btn" type="button">
+        delete
+      </button>
+    </div>
   )
 }
 export default SingleItem
